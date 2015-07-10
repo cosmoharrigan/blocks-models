@@ -17,7 +17,7 @@ ds = DenseDesignMatrix(X=X, y=y)
 hidden_layer = Sigmoid(layer_name='hidden', dim=10, irange=.1, init_bias=1.)
 output_layer = Linear(dim=1, layer_name='y', irange=.1)
 trainer = SGD(learning_rate=.05, batch_size=10,
-                  termination_criterion=EpochCounter(200))
+              termination_criterion=EpochCounter(200))
 layers = [hidden_layer, output_layer]
 ann = MLP(layers, nvis=2)
 trainer.setup(ann, ds)
