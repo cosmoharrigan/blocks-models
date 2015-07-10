@@ -13,12 +13,14 @@ filenames = {}
 filenames = glob.glob('/Users/cosmo/mldata/single-block-dataset-1/june30/processed/grayscale/*.png')
 
 # grayscale_downsampled_folder = '/Users/cosmo/mldata/single-block-dataset-1/june30/processed/grayscale/'
-grayscale_downsampled_folder = '/Users/cosmo/mldata/single-block-dataset-1/june30/grayscale_tiny/'
+grayscale_downsampled_folder = '/Users/cosmo/mldata/single-block-dataset-1/june30/grayscale_128x128/'
+
+NEW_SIZE = (128, 128)
 
 i = 0
 for filename in filenames:
     original_image = scipy.ndimage.imread(filename, flatten=True)
-    downsampled_image = scipy.misc.imresize(original_image, size=(32, 32))
+    downsampled_image = scipy.misc.imresize(original_image, size=NEW_SIZE)
     
     extracted_filename = filename.split('/')[-1]
     print(grayscale_downsampled_folder + extracted_filename)
